@@ -111,7 +111,7 @@ async def classify_message(message: str) -> dict:
 
     try:
         response = _client.messages.create(
-            model      = "claude-sonnet-4-20250514",
+            model      = "claude-sonnet-4-6",
             max_tokens = 500,
             system     = system_prompt,
             messages   = [{"role": "user", "content": message}],
