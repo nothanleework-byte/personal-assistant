@@ -144,8 +144,8 @@ def get_reminders_due_today() -> list:
 # BRIEFING LOG
 # ─────────────────────────────────────────────
 
-def save_briefing(briefing_text: str):
+def save_briefing(content: str) -> None:
     supabase.table("briefing_log").upsert({
-        "date": str(date.today()),
-        "briefing": briefing_text
+        "date": date.today().isoformat(),
+        "content_sent": content,
     }, on_conflict="date").execute()
